@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  # Our container for CDK command
+  aws-cdk:
+    # Build our Dockerfile
+    build: .
+    # Make sure files are syncd to folder 
+    #  and docker container /home/app folder
+    volumes:
+      - .:/Clarius
+    # Entrypoint when we `ssh` to container
+    command: [/bin/bash]
