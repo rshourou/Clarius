@@ -9,6 +9,7 @@ The /api folder contains the Python FastAPI code. Run this shell script to build
 # Only work on UNIX (Mac/Linux) systems!
 # Go to api folder cd api and run docker commands: 
 docker build -t build_lambda .
+
 docker run --rm -v "cd:/code" build_lambda
 
 This should generate a lambda_function.zip in api folder.
@@ -19,13 +20,17 @@ The /Clarius-Infra folder contains the CDK code to deploy all the infrastructure
 
 cd ..
 docker compose up -d
+
 docker compose run -it --rm aws-cdk /bin/bash
+
 cd Clarius/Clarius_Infra
 
 # You will also need to configure AWS cli inside container by running in /Clarius-Infra folder
 
 aws configure
+
 cdk bootstrap
+
 cdk deploy
 
 
